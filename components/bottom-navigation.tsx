@@ -75,9 +75,9 @@ export const BottomNavigation = memo(function BottomNavigation({ activeSection, 
         damping: 20,
       }}
     >
-      <div className="flex justify-around items-center h-14">
+      <div className="flex justify-around items-center h-20">
         {" "}
-        {/* Reduced height from h-16 to h-14 */}
+        {/* Increased height from h-14 to h-20 for larger elements */}
         {navItems.map((item) => {
           const isActive = activeSection === item.id
 
@@ -95,21 +95,21 @@ export const BottomNavigation = memo(function BottomNavigation({ activeSection, 
                 animate={
                   isActive
                     ? {
-                        scale: [1, 1.1, 1], // Reduced scale from 1.2 to 1.1
+                        scale: [1, 1.2, 1], // Increased scale from 1.1 back to 1.2 for more prominent active state
                         transition: { duration: 0.3 },
                       }
                     : { scale: 1 }
                 }
               >
-                <item.icon className="w-4 h-4" strokeWidth={isActive ? 2.5 : 2} />{" "}
-                {/* Reduced size from w-5 h-5 to w-4 h-4 */}
+                <item.icon className="w-6 h-6" strokeWidth={isActive ? 2.5 : 2} />{" "}
+                {/* Increased size from w-4 h-4 to w-6 h-6 */}
               </motion.div>
               <motion.span
-                className="text-[10px] mt-0.5" // Reduced text size and margin
+                className="text-xs mt-1" // Increased text size from text-[10px] to text-xs and margin from mt-0.5 to mt-1
                 animate={
                   isActive
                     ? {
-                        y: [0, -1, 0], // Reduced movement from -2 to -1
+                        y: [0, -2, 0], // Increased movement from -1 back to -2
                         transition: { duration: 0.3 },
                       }
                     : { y: 0 }

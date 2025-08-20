@@ -73,10 +73,6 @@ export default function RootLayout({
         <link rel="canonical" href="https://your-domain.com" />
         <meta name="format-detection" content="telephone=no" />
 
-        {/* Preload Nacelle fonts */}
-        <link rel="preload" href="/fonts/Nacelle-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Nacelle-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Nacelle-Light.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link
           rel="preload"
           href="/fonts/MoonetdemoRegular-6RnxY.otf"

@@ -1,53 +1,54 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
-// Removed framer-motion imports
+import { cn } from "@/lib/utils"
 
 interface LoaderProps {
   onComplete: () => void
 }
 
 export default function Loader({ onComplete }: LoaderProps) {
-  const [isVisible, setIsVisible] = useState(true);
-  const [opacity, setOpacity] = useState(1);
+  const [isVisible, setIsVisible] = useState(true)
+  const [fadeOut, setFadeOut] = useState(false)
 
   useEffect(() => {
+    // Start fade out after 3.5 seconds, so it finishes by 4 seconds (with 0.5s transition)
     const timer = setTimeout(() => {
-      setOpacity(0);
-      setTimeout(() => {
-        setIsVisible(false);
-        onComplete();
-      }, 500);
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, [onComplete]);
+      setFadeOut(true)
+    }, 3500)
 
-  // Removed mask logic
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleTransitionEnd = () => {
+    if (fadeOut) {
+      setIsVisible(false) // Fully hidden, now can be unmounted
+      onComplete() // Notify parent
+    }
+  }
+
+  if (!isVisible) return null // Don't render if not visible
 
   return (
-    isVisible && (
-      <div
-        className="fixed inset-0 w-screen h-screen bg-black flex items-center justify-center z-[9999]"
-        style={{ transition: 'opacity 0.5s', opacity }}
-      >
-        <div className="select-none flex items-center justify-center">
-          <div
-            style={{
-              width: "clamp(4rem,12vw,8rem)",
-              height: "auto",
-              overflow: "hidden",
-              userSelect: "none",
-            }}
-          >
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="w-full h-auto"
-              draggable="false"
-            />
-          </div>
-        </div>
+    <div
+      className={cn(
+        "fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-500 ease-in-out",
+        fadeOut ? "opacity-0" : "opacity-100",
+      )}
+      onTransitionEnd={handleTransitionEnd}
+    >
+      <div className="relative">
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={100}
+          height={100}
+          priority
+          className="animate-pulse filter brightness-0 invert"
+        />
+        <div className="absolute inset-0 bg-white/20 rounded-full animate-ping" />
       </div>
-    )
-  );
+    </div>
+  )
 }

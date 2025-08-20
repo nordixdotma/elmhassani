@@ -69,12 +69,14 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
       id="work"
       className={cn(
         "relative flex flex-col justify-center",
-        isMobile ? "min-h-[calc(100dvh-4rem-64px)] py-8" : "min-h-screen py-16 sm:py-24",
+        isMobile ? "min-h-[calc(100dvh-80px)] py-6" : "min-h-screen py-16 sm:py-24", // Changed from 100dvh-4rem-64px to 100dvh-80px and reduced py-8 to py-6 for better mobile spacing
       )}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className={cn("flex flex-col items-center text-center", isMobile ? "mb-4" : "mb-8")}>
+        <div className={cn("flex flex-col items-center text-center", isMobile ? "mb-6" : "mb-8")}>
+          {" "}
+          {/* Increased mobile margin from mb-4 to mb-6 */}
           <div>
             <h2
               className={cn(
@@ -94,7 +96,7 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
 
         {/* Carousel with event handling */}
         <div
-          className={cn("relative w-full", isMobile ? "px-2 pb-4" : "px-4 pb-[1rem]")}
+          className={cn("relative w-full", isMobile ? "px-2 pb-2" : "px-4 pb-[1rem]")} // Reduced mobile pb-4 to pb-2 for less bottom spacing
           onWheelCapture={handleWheelCapture}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}

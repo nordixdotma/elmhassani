@@ -301,20 +301,20 @@ export default function FullPageScroll() {
 
       <style jsx>{`
         .fullpage-container {
-          height: 100vh;
+          height: 100dvh; /* Changed from 100vh to 100dvh for better mobile viewport handling */
           overflow: hidden;
           position: relative;
           font-family: 'SF Pro Display', 'Nacelle', system-ui, sans-serif;
         }
 
         .sections-wrapper {
-          height: 100vh;
+          height: 100dvh; /* Changed from 100vh to 100dvh for better mobile viewport handling */
           position: relative;
           ${isMobile ? "width: 400vw;" : ""} /* 4 sections * 100vw each for mobile */
         }
 
         .section {
-          height: 100vh;
+          height: 100dvh; /* Changed from 100vh to 100dvh for better mobile viewport handling */
           width: 100vw;
           position: absolute;
           top: 0;
@@ -323,7 +323,7 @@ export default function FullPageScroll() {
           align-items: center;
           justify-content: center;
           transition: transform ${TRANSITION_DURATION}ms cubic-bezier(0.23, 1, 0.32, 1);
-          ${isMobile ? "padding-bottom: 64px;" : ""} /* Account for bottom nav */
+          ${isMobile ? "padding-bottom: 80px;" : ""} /* Increased from 64px to 80px for larger bottom nav */
           box-sizing: border-box;
         }
 
