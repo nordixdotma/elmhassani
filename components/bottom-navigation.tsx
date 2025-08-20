@@ -105,7 +105,7 @@ export const BottomNavigation = memo(function BottomNavigation({ activeSection, 
                 {/* Reduced size from w-5 h-5 to w-4 h-4 */}
               </motion.div>
               <motion.span
-                className="text-sm mt-1" // Increased text size from text-[10px] to text-xs and margin from mt-0.5 to mt-1
+                className="text-xs mt-1" // Increased text size from text-[10px] to text-xs and margin from mt-0.5 to mt-1
                 animate={
                   isActive
                     ? {
