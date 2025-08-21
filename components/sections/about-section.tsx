@@ -256,7 +256,6 @@ function AboutSectionComponent({ isMobile }: AboutSectionProps) {
                   onTouchStart={handleTouchStart}
                   onTouchMove={(e) => handleTouchMove(e, firstRowRef, firstRowScrollLeft)}
                   onTouchEnd={handleTouchEnd}
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                   {/* Double the skills to create seamless loop */}
                   {[...firstHalfSkills, ...firstHalfSkills].map((skill, index) => (
@@ -286,7 +285,6 @@ function AboutSectionComponent({ isMobile }: AboutSectionProps) {
                   onTouchStart={handleTouchStart}
                   onTouchMove={(e) => handleTouchMove(e, secondRowRef, secondRowScrollLeft)}
                   onTouchEnd={handleTouchEnd}
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                   {/* Double the skills to create seamless loop */}
                   {[...secondHalfSkills, ...secondHalfSkills].map((skill, index) => (
@@ -316,11 +314,7 @@ function AboutSectionComponent({ isMobile }: AboutSectionProps) {
 
               {/* Desktop auto-scrolling skills row */}
               <div className="relative w-full overflow-visible p-2 rounded-md">
-                <div
-                  ref={desktopRowRef}
-                  className="flex overflow-x-auto scrollbar-hide py-4"
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                >
+                <div ref={desktopRowRef} className="flex overflow-x-auto scrollbar-hide py-4">
                   {/* Double all skills to create seamless loop */}
                   {[...allSkills, ...allSkills].map((skill, index) => (
                     <div

@@ -60,7 +60,7 @@ export const BottomNavigation = memo(function BottomNavigation({ activeSection, 
 
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md border-t md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md border-t md:hidden bg-current"
       style={{
         backgroundColor: currentColors.background,
         borderTopColor: `${currentColors.border}20`, // Reduced opacity for lighter border
@@ -84,6 +84,7 @@ export const BottomNavigation = memo(function BottomNavigation({ activeSection, 
           return (
             <button
               key={item.id}
+              type="button"
               onClick={() => onNavigate(item.id)}
               className={cn("flex flex-col items-center justify-center w-full h-full relative")}
               style={{

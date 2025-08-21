@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useState, useEffect, memo } from "react"
+import Image from "next/image"
 
 interface MobileMenuProps {
   onNavigate: (sectionId: string) => void
@@ -29,6 +30,10 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
   const handleNavigation = (sectionId: string) => {
     setOpen(false)
     onNavigate(sectionId)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
   }
 
   // Define animation variants outside of render to prevent recreation
@@ -66,6 +71,7 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
+          type="button"
           className="w-9 h-9 flex items-center justify-center rounded-md transition-colors hover:bg-black/10 cursor-target"
           style={{ color: textColor }}
           aria-label="Toggle menu"
@@ -82,10 +88,25 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
           </svg>
         </button>
       </SheetTrigger>
-      <SheetContent
-        side="right"
-        className="w-full max-w-[280px] p-0 z-[1100] bg-black border-0 [&>button]:text-white [&>button]:w-5 [&>button]:h-5 [&>button]:right-2 [&>button]:top-4"
-      >
+      <SheetContent side="right" className="w-full max-w-[280px] p-0 z-[1100] bg-black border-0 [&>button]:hidden">
+        <button
+          type="button"
+          onClick={handleClose}
+          className="absolute right-4 top-4 z-10 w-6 h-6 flex items-center justify-center text-white hover:text-gray-300 transition-colors"
+          aria-label="Close menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
         <motion.div
           className="flex flex-col h-full bg-black text-white"
           variants={container}
@@ -95,13 +116,10 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
           {/* Header section */}
           <div className="p-6">
             <motion.div className="mb-8" variants={item}>
-              <h2
-                className="text-2xl font-normal mb-2 text-white"
-                style={{ fontFamily: "MoonetdemoRegular, Inter, system-ui, sans-serif" }}
-              >
-                N
-              </h2>
-              <div className="h-0.5 w-8 bg-[#ff4500] rounded-full" />
+              <div className="mb-2">
+                <Image src="/logo.png" alt="Logo" width={32} height={32} className="w-8 h-8" />
+              </div>
+              <div className="h-0.5 w-8 bg-gray-300 rounded-full" />
             </motion.div>
           </div>
 
@@ -111,6 +129,7 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
               {menuItems.map((menuItem, index) => (
                 <motion.button
                   key={menuItem.label}
+                  type="button"
                   onClick={() => handleNavigation(menuItem.id)}
                   className="relative w-full text-lg font-normal capitalize text-left group block"
                   variants={item}
@@ -131,7 +150,7 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
           </div>
 
           {/* Footer section */}
-          <motion.div className="mt-auto p-6 border-t border-[#ff4500]" variants={item} initial="hidden" animate="show">
+          <motion.div className="mt-auto p-6 border-t border-gray-600" variants={item} initial="hidden" animate="show">
             <div className="text-sm font-medium mb-4 text-white">Connect with me</div>
             <div className="flex gap-3">
               {socialLinks.map((link) => (
@@ -139,7 +158,7 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
                   key={link.label}
                   href={link.href}
                   target="_blank"
-                  className="p-2.5 rounded-lg border border-[#ff4500] bg-black hover:bg-[#ff4500]/10 hover:border-[#ff4500] transition-colors"
+                  className="p-2.5 rounded-lg border border-gray-600 bg-black hover:bg-gray-800 hover:border-gray-500 transition-colors"
                 >
                   <link.icon className="w-5 h-5 text-white" />
                   <span className="sr-only">{link.label}</span>

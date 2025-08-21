@@ -73,13 +73,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://your-domain.com" />
         <meta name="format-detection" content="telephone=no" />
 
-        <link
-          rel="preload"
-          href="/fonts/MoonetdemoRegular-6RnxY.otf"
-          as="font"
-          type="font/otf"
-          crossOrigin="anonymous"
-        />
+        <link rel="preload" href="/MoonetdemoRegular-6RnxY.otf" as="font" type="font/otf" crossOrigin="anonymous" />
 
         {/* San Francisco Font */}
         <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />

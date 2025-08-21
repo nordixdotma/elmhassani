@@ -304,7 +304,7 @@ export default function FullPageScroll() {
           height: 100dvh; /* Changed from 100vh to 100dvh for better mobile viewport handling */
           overflow: hidden;
           position: relative;
-          font-family: 'SF Pro Display', 'Nacelle', system-ui, sans-serif;
+          font-family: 'SF Pro Display', system-ui, sans-serif;
         }
 
         .sections-wrapper {
