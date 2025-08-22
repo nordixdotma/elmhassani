@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const inter = Inter({
@@ -17,6 +18,11 @@ export const metadata: Metadata = {
     "full stack developer, software engineer, React developer, Next.js, Node.js, web development, JavaScript, TypeScript, frontend, backend",
   authors: [{ name: "Noureddine El Mhassani" }],
   creator: "Noureddine El Mhassani",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   publisher: "Noureddine El Mhassani",
   robots: "index, follow",
   openGraph: {
@@ -28,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Noureddine El Mhassani Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // Add your Open Graph image
+        url: "/logo.png", // Add your Open Graph image
         width: 1200,
         height: 630,
         alt: "Noureddine El Mhassani - Full Stack Developer",
@@ -40,7 +46,7 @@ export const metadata: Metadata = {
     title: "Noureddine El Mhassani - Full Stack Developer",
     description: "Experienced full stack developer creating innovative web solutions with modern technologies.",
     creator: "@nordixdotma",
-    images: ["/og-image.jpg"], // Add your Twitter card image
+    images: ["/logo.png"], // Add your Twitter card image
   },
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#ff4500",
@@ -117,6 +123,7 @@ export default function RootLayout({
         />
       </head>
       <body translate="no" className="notranslate">
+        <Analytics />
         {children}
       </body>
     </html>
