@@ -19,39 +19,27 @@ export default function Loader({ onComplete }: LoaderProps) {
         onComplete()
       }, 500)
     }, 4000)
+
     return () => clearTimeout(timer)
   }, [onComplete])
 
+  if (!isVisible) return null
+
   return (
-    isVisible && (
-      <div
-        className="fixed inset-0 w-screen h-screen bg-black flex items-center justify-center z-[9999]"
-        style={{ transition: "opacity 0.5s ease-in-out", opacity }}
-      >
-        <div className="select-none flex items-center justify-center">
-          <div
-            style={{
-              width: "clamp(4rem,12vw,8rem)",
-              height: "auto",
-              overflow: "hidden",
-              userSelect: "none",
-            }}
-          >
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={128}
-              height={128}
-              className="w-full h-auto animate-pulse"
-              draggable={false}
-              priority
-              style={{
-                animation: "pulse 2s ease-in-out infinite",
-              }}
-            />
-          </div>
-        </div>
+    <div
+      className="fixed inset-0 w-screen h-screen bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 loader-opacity"
+    >
+      <div className="select-none">
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={128}
+          height={128}
+          className="w-16 h-16 md:w-32 md:h-32 animate-pulse"
+          draggable={false}
+          priority
+        />
       </div>
-    )
+    </div>
   )
 }
