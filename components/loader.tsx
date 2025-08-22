@@ -27,7 +27,7 @@ export default function Loader({ onComplete }: LoaderProps) {
 
   return (
     <div
-      className="fixed inset-0 w-screen h-screen bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 loader-opacity"
+      className="fixed inset-0 w-screen h-[100dvh] bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 loader-opacity overflow-hidden"
     >
       <div className="select-none">
         <Image
