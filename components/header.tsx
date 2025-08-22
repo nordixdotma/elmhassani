@@ -1,7 +1,7 @@
 "use client"
 
 import { Github, Linkedin, Mail } from "lucide-react"
-import { MobileMenu } from "@/components/mobile-menu"
+// ...existing code...
 import { HoverLinkPreview } from "@/components/ui/hover-link-preview" // Import HoverLinkPreview
 
 interface HeaderProps {
@@ -45,9 +45,15 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
           </span>
         </div>
 
-        {/* Right - Mobile Menu */}
+        {/* Right - Home Image Link */}
         <div className="header-right">
-          <MobileMenu onNavigate={onSectionClick} socialLinks={socialLinks} textColor={textColor} />
+          <a href="/#home" className="home-image-link">
+            <img
+              src="/g.jpg"
+              alt="Home"
+              style={{ width: 30, height: 30, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}
+            />
+          </a>
         </div>
 
         <style jsx>{`
@@ -119,6 +125,10 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
           display: flex;
           justify-content: flex-end;
         }
+        .home-image-link img {
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
       `}</style>
       </header>
     )
@@ -134,6 +144,7 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
           {sectionTitles[currentSection as keyof typeof sectionTitles]}
         </span>
       </div>
+
 
       {/* Right - Navigation Links */}
       <nav className="header-right">
