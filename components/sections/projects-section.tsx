@@ -69,7 +69,7 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
       id="work"
       className={cn(
         "relative flex flex-col justify-center",
-        isMobile ? "min-h-[calc(100dvh-80px)] py-8" : "min-h-screen py-16 sm:py-24", // Adjusted mobile padding to balance top and bottom spacing
+        isMobile ? "min-h-[calc(100dvh-80px)] py-8 mt-16" : "min-h-screen py-16 sm:py-24", // Adjusted mobile padding to balance top and bottom spacing
       )}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -79,7 +79,7 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
           <div>
             <h2
               className={cn(
-                "font-bold tracking-tight text-[#faf9f6] mb-4",
+                "font-bold tracking-tight text-[#faf9f6] mb-1",
                 isMobile ? "text-2xl" : "text-3xl sm:text-4xl md:text-5xl",
               )}
             >

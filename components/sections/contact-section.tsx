@@ -119,10 +119,10 @@ function ContactSectionComponent({ isMobile }: ContactSectionProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#ff4500]">Let’s Talk</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-1 text-[#ff4500]">Let’s Talk</h2>
           </motion.div>
           <motion.p
-            className="max-w-[600px] text-sm sm:text-base text-[#ff4500]/80 whitespace-nowrap overflow-hidden text-ellipsis"
+            className="max-w-[600px] text-sm sm:text-base !mt-0 text-[#ff4500]/80 whitespace-nowrap overflow-hidden text-ellipsis"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
