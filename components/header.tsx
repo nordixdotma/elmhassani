@@ -14,17 +14,17 @@ interface HeaderProps {
 
 export default function Header({ currentSection, onSectionClick, textColor, scrollDirection, isMobile }: HeaderProps) {
   const sectionTitles = {
-    home: "here",
-    about: "a developer",
-    projects: "a creator",
-    contact: "available",
+    home: "HERE",
+    about: "A DEVELOPER",
+    projects: "A CREATOR",
+    contact: "AVAILABLE",
   }
 
   const sectionLinks = [
-    { id: "home", label: "home" },
-    { id: "about", label: "about" },
-    { id: "projects", label: "projects" },
-    { id: "contact", label: "contact" },
+    { id: "home", label: "HOME" },
+    { id: "about", label: "ABOUT" },
+    { id: "projects", label: "PROJECTS" },
+    { id: "contact", label: "CONTACT" },
   ]
 
   // Social links for mobile menu
@@ -39,14 +39,11 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
       <header className="header">
         {/* Left - Dynamic Title */}
         <div className="header-left">
-          <span>I'm&nbsp;</span>
+          <span>I'M&nbsp;</span>
           <span key={currentSection} className={`dynamic-title-part slide-in-${scrollDirection}`}>
             {sectionTitles[currentSection as keyof typeof sectionTitles]}
           </span>
         </div>
-
-        {/* Center - Logo */}
-        <div className="header-center">N</div>
 
         {/* Right - Mobile Menu */}
         <div className="header-right">
@@ -71,8 +68,8 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
 
         .header-left {
           flex: 1;
-          font-size: 1rem;
-          font-weight: 400;
+          font-size: 0.9rem;
+          font-weight: 500;
           display: flex;
           align-items: center;
           overflow: hidden;
@@ -117,13 +114,6 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
           }
         }
 
-        .header-center {
-          flex: 0 0 auto;
-          font-family: 'MoonetdemoRegular', var(--font-inter), 'Inter', system-ui, sans-serif;
-          font-size: 2rem;
-          font-weight: normal;
-        }
-
         .header-right {
           flex: 1;
           display: flex;
@@ -139,14 +129,11 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
     <header className="header">
       {/* Left - Dynamic Title */}
       <div className="header-left">
-        <span>I'm&nbsp;</span>
+        <span>I'M&nbsp;</span>
         <span key={currentSection} className={`dynamic-title-part slide-in-${scrollDirection}`}>
           {sectionTitles[currentSection as keyof typeof sectionTitles]}
         </span>
       </div>
-
-      {/* Center - Logo */}
-      <div className="header-center cursor-target">N</div>
 
       {/* Right - Navigation Links */}
       <nav className="header-right">
@@ -154,7 +141,7 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
           <HoverLinkPreview
             key={link.id}
             href={`/#${link.id}`} // Use hash link for internal navigation
-            previewImage={`/placeholder.svg?height=112&width=192&query=navigation-preview-${link.id}`} // Placeholder image
+            previewImage={`/${link.id}-preview.png`} // Unique image for each link
             imageAlt={`${link.label} section preview`}
             className="nav-link cursor-target" // Apply nav-link styles and cursor-target
             isMobile={isMobile} // Pass isMobile prop
@@ -185,8 +172,8 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
 
       .header-left {
         flex: 1;
-        font-size: 1.2rem;
-        font-weight: 400;
+        font-size: 0.9rem;
+        font-weight: 500;
         display: flex;
         align-items: center;
         overflow: hidden;
@@ -227,18 +214,13 @@ export default function Header({ currentSection, onSectionClick, textColor, scro
         }
       }
 
-      .header-center {
-        flex: 0 0 auto;
-        font-family: 'MoonetdemoRegular', var(--font-inter), 'Inter', system-ui, sans-serif;
-        font-size: 2.5rem;
-        font-weight: normal;
-      }
-
       .header-right {
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        gap: 30px;
+        gap: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
       }
 
       /* Styles for HoverLinkPreview when used as nav-link */

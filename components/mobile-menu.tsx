@@ -54,14 +54,6 @@ export const MobileMenu = memo(function MobileMenu({ onNavigate, socialLinks, te
     { label: "contact", id: "contact" },
   ]
 
-  if (!mounted) {
-    return (
-      <button className="w-9 h-9 flex items-center justify-center rounded-md transition-colors">
-        <span className="sr-only">Toggle menu</span>
-      </button>
-    )
-  }
-
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
