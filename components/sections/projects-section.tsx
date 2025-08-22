@@ -69,12 +69,13 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
       id="work"
       className={cn(
         "relative flex flex-col justify-center",
-        isMobile ? "min-h-[calc(100dvh-4rem-64px)] py-8" : "min-h-screen py-16 sm:py-24",
+        isMobile ? "min-h-[calc(100dvh-80px)] py-8" : "min-h-screen py-16 sm:py-24", // Adjusted mobile padding to balance top and bottom spacing
       )}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className={cn("flex flex-col items-center text-center", isMobile ? "mb-4" : "mb-8")}>
+        <div className={cn("flex flex-col items-center text-center", isMobile ? "mb-8" : "mb-8")}>
+          {" "}
           <div>
             <h2
               className={cn(
@@ -94,7 +95,7 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
 
         {/* Carousel with event handling */}
         <div
-          className={cn("relative w-full", isMobile ? "px-2 pb-4" : "px-4 pb-[1rem]")}
+          className={cn("relative w-full", isMobile ? "px-2 pb-0" : "px-4 pb-[1rem]")} // Removed bottom padding on mobile to reduce bottom spacing
           onWheelCapture={handleWheelCapture}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -224,11 +225,11 @@ export default function ProjectsSection({ isMobile }: ProjectsSectionProps) {
             <CarouselNavigation
               className={cn(
                 "gap-2",
-                isMobile ? "flex justify-center mt-4" : "absolute -bottom-10 left-auto top-auto w-full justify-end",
+                isMobile ? "flex justify-center mt-2" : "absolute -bottom-10 left-auto top-auto w-full justify-end",
               )}
               classNameButton={cn(
                 "bg-[#faf9f6] *:stroke-[#ff4500] disabled:opacity-50",
-                isMobile ? "h-10 w-10" : "h-8 w-8", // Increased from h-8 w-8 to h-10 w-10 for mobile
+                isMobile ? "h-10 w-10" : "h-8 w-8",
               )}
               alwaysShow
             />
